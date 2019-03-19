@@ -31,6 +31,7 @@ function cambiarLimiteDeExtraccion() {
     }
 }
 
+/*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 function extraerDinero() {
     var saldoExtraer = prompt("Cuanto deseas extrar");
 
@@ -40,6 +41,7 @@ function extraerDinero() {
         calc(parseFloat(saldoExtraer), "-", "Extrajiste: ");
     }
 }
+/*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 
 function depositarDinero() {
     var deposit = prompt("Cuanto deseas depositar");
@@ -51,6 +53,7 @@ function depositarDinero() {
         calc(parseFloat(deposit), "+", "Depositaste:");
     }
 }
+/*function que trae el dato del cliente y mira si si correcto, luego mira que tipo de servicio es y lo pasa a calc. */
 
 function pagarServicio() {
     var pagarServicio = prompt("Ingresa el numero del servicio que queres pagar:" + "\n" + "1 - Agua" + "\n" + "2 - Luz" + "\n" + "3 - Internet" + "\n" + "4 - Telefono");
@@ -76,6 +79,7 @@ function pagarServicio() {
     }
 }
 
+/*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 function transferirDinero() {
     var transferir = prompt("Cuanto deseas transferir");
 
@@ -90,6 +94,7 @@ function transferirDinero() {
 
 }
 
+/* Calcula de acuerdo a tres inputs que vienen de las funciones del tipo de operacion a realizar */
 function calc(value, symbol, typeOfMovement) {
     var oldValue = saldoCuenta;
     var newValue = value;
@@ -118,6 +123,7 @@ function calc(value, symbol, typeOfMovement) {
 
 }
 
+/*Funcion que mira si las datos ingresados son los correcto y llama al objeto de camiloDominguez para agregar sus datos */
 function iniciarSesion() {
     var user = prompt("Ingresa tu codigo para iniciar sesion");
     if (user !== "1234") {
