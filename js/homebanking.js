@@ -21,7 +21,7 @@ window.onload = function () {
 
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion() {
-    var limiteNuevo = prompt("Cambia tu limite de Extraccion");
+    let limiteNuevo = prompt("Cambia tu limite de Extraccion");
 
     if (limiteNuevo === "") {
         alert("No ingresaste ningun monto tu Limite actual es " + "$" + limiteExtraccion);
@@ -33,7 +33,7 @@ function cambiarLimiteDeExtraccion() {
 
 /*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 function extraerDinero() {
-    var saldoExtraer = prompt("Cuanto deseas extrar");
+    let saldoExtraer = prompt("Cuanto deseas extrar");
 
     if (saldoExtraer === "") {
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
@@ -44,7 +44,7 @@ function extraerDinero() {
 /*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 
 function depositarDinero() {
-    var deposit = prompt("Cuanto deseas depositar");
+    let deposit = prompt("Cuanto deseas depositar");
 
     if (deposit === "") {
         deposit = 0;
@@ -56,7 +56,7 @@ function depositarDinero() {
 /*function que trae el dato del cliente y mira si si correcto, luego mira que tipo de servicio es y lo pasa a calc. */
 
 function pagarServicio() {
-    var pagarServicio = prompt("Ingresa el numero del servicio que queres pagar:" + "\n" + "1 - Agua" + "\n" + "2 - Luz" + "\n" + "3 - Internet" + "\n" + "4 - Telefono");
+    let pagarServicio = prompt("Ingresa el numero del servicio que queres pagar:" + "\n" + "1 - Agua" + "\n" + "2 - Luz" + "\n" + "3 - Internet" + "\n" + "4 - Telefono");
 
     if (pagarServicio === "") {
         alert("No ingresaste ningun servicio tu Saldo es " + "$" + saldoCuenta);
@@ -81,7 +81,7 @@ function pagarServicio() {
 
 /*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 function transferirDinero() {
-    var transferir = prompt("Cuanto deseas transferir");
+    let transferir = prompt("Cuanto deseas transferir");
 
     if (transferir === "") {
         transferir = 0;
@@ -96,12 +96,12 @@ function transferirDinero() {
 
 /* Calcula de acuerdo a tres inputs que vienen de las funciones del tipo de operacion a realizar */
 function calc(value, symbol, typeOfMovement) {
-    var oldValue = saldoCuenta;
-    var newValue = value;
-    var oldLimit = limiteExtraccion;
+    let oldValue = saldoCuenta;
+    let newValue = value;
+    let oldLimit = limiteExtraccion;
 
     if (symbol === "-") {
-        var newBalance = oldValue - newValue;
+        let newBalance = oldValue - newValue;
         if (newBalance > 0) {
             saldoCuenta = newBalance;
             actualizarSaldoEnPantalla();
@@ -125,7 +125,7 @@ function calc(value, symbol, typeOfMovement) {
 
 /*Funcion que mira si las datos ingresados son los correcto y llama al objeto de camiloDominguez para agregar sus datos */
 function iniciarSesion() {
-    var user = prompt("Ingresa tu codigo para iniciar sesion");
+    let user = prompt("Ingresa tu codigo para iniciar sesion");
     if (user !== "1234") {
         nombreUsuario = "";
         saldoCuenta = 0;
