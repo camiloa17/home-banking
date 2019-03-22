@@ -40,7 +40,7 @@ function extraerDinero() {
     if (Number.isNaN(saldoExtraer)) {
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
     } else {
-        if(saldoExtraer<=limiteExtraccion){
+        if(saldoExtraer <= limiteExtraccion){
             if(saldoExtraer % 100 ===0){
                 calc(saldoExtraer, "-", "Extrajiste: ");
             }else{
@@ -120,7 +120,7 @@ function calc(value, symbol, typeOfMovement) {
 
     if (symbol === "-") {
         let newBalance = oldValue - newValue;
-        if (newBalance > 0) {
+        if (newBalance >= 0) {
             saldoCuenta = newBalance;
             actualizarSaldoEnPantalla();
             alert(typeOfMovement + "$" + newValue + "\n" + "Saldo Anterior $" + oldValue + "\n" + "Saldo actual: $" + saldoCuenta);
