@@ -1,3 +1,4 @@
+'use strict'
 //Declaración de variables
 var nombreUsuario = "";
 var saldoCuenta = 0;
@@ -6,7 +7,7 @@ var limiteExtraccion = 0;
 var camiloDominguez = {
     nombreUsuario: "Camilo Dominguez",
     saldoCuenta: 3400,
-    limiteExtraccion: 1000,
+    limiteExtraccion: 1000
 };
 
 
@@ -19,61 +20,62 @@ window.onload = function () {
 };
 
 
-//Funciones que tenes que completar
+//funcion que permite cambiar limite de extraccion al pasar valor a Calc
 function cambiarLimiteDeExtraccion() {
-    let limiteNuevo = prompt("Cambia tu limite de Extraccion");
+    let limiteNuevo = parseFloat(prompt("Cambia tu limite de Extraccion"));
 
-    if (limiteNuevo === "") {
+    if (Number.isNaN(limiteNuevo)) {
         alert("No ingresaste ningun monto tu Limite actual es " + "$" + limiteExtraccion);
 
-    } else if (limiteNuevo) {
-        calc(parseFloat(limiteNuevo), "lim", "Limite de antes $")
+    } else {
+        calc(limiteNuevo, "lim", "Limite de antes $")
     };
 };
 
-/*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
+/*funcion para tomar dato de cuanto quiere extraer y se pasa a funcion calc */
 function extraerDinero() {
-    let saldoExtraer = prompt("Cuanto deseas extrar");
+    let saldoExtraer = parseFloat(prompt("Cuanto deseas extrar"));
 
-    if (saldoExtraer === "") {
+    if (Number.isNaN(saldoExtraer)) {
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
-    } else if (saldoExtraer) {
-        calc(parseFloat(saldoExtraer), "-", "Extrajiste: ");
+    } else {
+        calc(saldoExtraer, "-", "Extrajiste: ");
     };
 };
-/*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
+
+/*funcion para agregar dinero a la cuenta, el valor se pasa a calc */
 
 function depositarDinero() {
-    let deposit = prompt("Cuanto deseas depositar");
+    let deposit = parseFloat(prompt("Cuanto deseas depositar"));
 
-    if (deposit === "") {
-        deposit = 0;
+    if (Number.isNaN(deposit)) {
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
-    } else if (deposit) {
-        calc(parseFloat(deposit), "+", "Depositaste:");
+    } else  {
+        calc(deposit, "+", "Depositaste:");
     };
 };
-/*function que trae el dato del cliente y mira si si correcto, luego mira que tipo de servicio es y lo pasa a calc. */
+
+/*funcion que recoge el servicio a pagar y pasa el valor a calc. */
 
 function pagarServicio() {
-    let pagarServicio = prompt("Ingresa el numero del servicio que queres pagar:" + "\n" + "1 - Agua" + "\n" + "2 - Luz" + "\n" + "3 - Internet" + "\n" + "4 - Telefono");
+    let pagarServicio = parseFloat(prompt("Ingresa el numero del servicio que queres pagar:" + "\n" + "1 - Agua" + "\n" + "2 - Luz" + "\n" + "3 - Internet" + "\n" + "4 - Telefono"));
 
-    if (pagarServicio === "") {
+    if (Number.isNaN(pagarServicio)) {
         alert("No ingresaste ningun servicio tu Saldo es " + "$" + saldoCuenta);
     } else {
         switch (pagarServicio) {
-            case "1":
-                calc(400, "-", "Pagaste por el servicio de Agua:");
+            case 1:
+                calc(350, "-", "Pagaste por el servicio de Agua:");
                 break;
 
-            case "2":
-                calc(600, "-", "Pagaste por el servicio de Luz:");
+            case 2:
+                calc(210, "-", "Pagaste por el servicio de Luz:");
                 break;
-            case "3":
-                calc(800, "-", "Pagaste por el servicio de Intenet:");
+            case 3:
+                calc(570, "-", "Pagaste por el servicio de Intenet:");
                 break;
-            case "4":
-                calc(950, "-", "Pagaste por el servicio de Telefono:");
+            case 4:
+                calc(425, "-", "Pagaste por el servicio de Telefono:");
                 break;
         };
     };
@@ -81,14 +83,14 @@ function pagarServicio() {
 
 /*function que trae el dato del cliente y mira si es correcto para pasarlo a la funcion calc. */
 function transferirDinero() {
-    let transferir = prompt("Cuanto deseas transferir");
+    let transferir = parseFloat(prompt("Cuanto deseas transferir"));
 
-    if (transferir === "") {
+    if (Number.isNaN(transferir)) {
         transferir = 0;
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
 
-    } else if (transferir) {
-        calc(parseFloat(transferir), "-", "Transferiste:");
+    } else {
+        calc(transferir, "-", "Transferiste:");
 
     };
 
@@ -162,11 +164,11 @@ function actualizarLimiteEnPantalla() {
 };
 
 
-/*add event listener to all buttons*/
+/*Agrega eventos de clicks a todas las clases de links*/
 
 var count = document.getElementsByClassName("links").length;
 
-for (i = 0; i < count; i++) {
+for (var i = 0; i < count; i++) {
     document.getElementsByClassName("links")[i].addEventListener("click", function () {
 
         switch (this.getAttribute("id")) {
@@ -189,7 +191,7 @@ for (i = 0; i < count; i++) {
             case "cambiarLimite":
                 cambiarLimiteDeExtraccion();
                 break;
-        }
+        };
 
     });
 };
