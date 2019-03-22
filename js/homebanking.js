@@ -3,6 +3,7 @@
 var nombreUsuario = "";
 var saldoCuenta = 0;
 var limiteExtraccion = 0;
+var cuentasAmigas = ["1234567","7654321"]
 
 var camiloDominguez = {
     nombreUsuario: "Camilo Dominguez",
@@ -39,7 +40,16 @@ function extraerDinero() {
     if (Number.isNaN(saldoExtraer)) {
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
     } else {
-        calc(saldoExtraer, "-", "Extrajiste: ");
+        if(saldoExtraer<=limiteExtraccion){
+            if(saldoExtraer % 100 ===0){
+                calc(saldoExtraer, "-", "Extrajiste: ");
+            }else{
+                alert("Solo se puede extraer con billetes de 100");
+            }
+        }else{
+            alert("El monto excede el limite de extraccion");
+        }
+        
     };
 };
 
@@ -86,14 +96,20 @@ function transferirDinero() {
     let transferir = parseFloat(prompt("Cuanto deseas transferir"));
 
     if (Number.isNaN(transferir)) {
-        transferir = 0;
         alert("No ingresaste ningun monto tu Saldo es " + "$" + saldoCuenta);
 
     } else {
-        calc(transferir, "-", "Transferiste:");
+        let cuentaATransferir = prompt("Ingresa tu cuenta amiga");
 
+        if (cuentasAmigas.includes(cuentaATransferir)) {
+
+            calc(transferir, "-", "Transferiste:");
+
+        } else {
+
+            alert("Solo se puede transferir a cuentas amigas")
+        };
     };
-
 };
 
 /* Calcula de acuerdo a tres inputs que vienen de las funciones del tipo de operacion a realizar */
